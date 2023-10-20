@@ -1,0 +1,56 @@
+<div class="container-md ">
+    <app-eaf-modal></app-eaf-modal>
+    <br>
+    <!--    TITULO Y MENU    -->
+    <div class="row ">
+        <!--    TITULO    -->
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <h3>DATOS DEL HORNO EAF</h3>
+        </div>
+        <!--    MENU    -->
+        <div class="col-md-4 text-start ">
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline"><img
+                                src="./assets/menu2.png" width="55" height="50"></span>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown">
+                        <li><a class="dropdown-item" (click)="exportexcel()" style="cursor:pointer;"><img src="./assets/excel.png" width="20"
+                                    height="25">Exportar a Excell</a></li>
+                        <li>
+                        <li><a class="dropdown-item" (click)="openModal()" style="cursor:pointer;"><img src="./assets/excel.png" width="20"
+                                    height="25">Informe del mes</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <!--    RANGO DE FECHA    -->
+    <div class="row ">
+        <div class="col-md-12 text-center ">
+            Desde:
+            <input type="date" [(ngModel)]="fecha_inicio" name="fecha_inicio" (change)="informe_horno()" />
+            Hasta:
+            <input type="date" [(ngModel)]="fecha_final" name="fecha_final" (change)="informe_horno()" />
+        </div>
+    </div>
+    <br>
+    <!--    TABLA     -->
+    <div class="row">
+        <div class="row-col-md-12">
+            <div class="table-responsive scroll border border-secondary border-4 rounded">
+                <table class="table table-bordered border-dark table-striped text-center bg-light" id="excel-table">
+                    <tr *ngFor="let dato of array_horno_datos">
+                        <th *ngFor="let item of dato " class=""> {{item.titulo}} </th>
+                        <th *ngFor="let item of dato " class="celda-fija-RepHor"> {{item.unidad}} </th>
+                        <td *ngFor="let item of dato[0].datos " class="px-2"> {{item}} </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

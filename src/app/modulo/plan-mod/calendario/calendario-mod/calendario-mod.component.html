@@ -1,0 +1,144 @@
+<mat-tab-group>
+    <!-- -->
+    <mat-tab label="Asignación">
+        <div class="row" style=" margin-top:10px;">
+            <div class="col text-left" style="margin-right:25px; margin-left:25px">
+                <h6>Área:
+                    <select name="" id="" (change)="seleccion($event, 1)" [(ngModel)]="area_input">
+                        <option value="0">Seleccionar</option>
+                        <option *ngFor="let item of area_array" value="{{item.codigo}}">{{item.nombre}}</option>
+                    </select>
+                </h6>
+            </div>
+            <div class="col text-center">
+                <h6>Jornada:
+                    <select name="" id="" (change)="seleccion($event, 2)" [(ngModel)]="jornada_input">
+                        <option value="0">Seleccionar</option>
+                        <option *ngFor="let item of jornada_array" value="{{item.codigo}}">{{item.nombre}}</option>
+                    </select>
+                </h6>
+                <div class="text-center">
+                    <input type="date" [(ngModel)]="fecha_asignacion" (change)="seleccion($event, 0)" />
+                </div>
+            </div>
+            <div class="col text-end" style="margin-right:25px; margin-left:25px">
+                <button class="btn btn-primary" (click)="guardar_asignacion()" disabled>Guardar</button>
+            </div>
+        </div>
+        <!--<div class="container"> -->
+        <div style="margin-top:10px; margin-right:25px; margin-left:25px">
+            <mat-grid-list cols="6" rowHeight="2rem" class="">
+                <mat-grid-tile colspan='1'>Colaborador</mat-grid-tile>
+                <mat-grid-tile colspan='1'>Añadir tarea</mat-grid-tile>
+                <mat-grid-tile colspan='4'>Tareas</mat-grid-tile>
+            </mat-grid-list>
+            <div class="table-responsive scroll-lr " style="max-height: 400px; overflow-y: auto; overflow-x: auto;">
+
+                <mat-grid-list cols="6" *ngFor="let colaborador of array_colab" #bton rowHeight="2:1">
+                    <mat-grid-tile colspan='1'>
+                        <div>
+                            {{colaborador.codigo}}:
+                        </div>
+                        <div>
+                            {{colaborador.nombre}}
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan='1'>
+                        <button type="button" class="btn btn-primary" (click)="colaborador_seleccionado(colaborador)"
+                            data-bs-toggle="modal" data-bs-target="#myModal">
+                            +
+                        </button>
+                        <!--<button class="btn btn-success" #bton (click)="openDialog()">+</button> -->
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan='4'>
+                        <div cdkDropList cdkDropListOrientation="horizontal" class="example-list"
+                            (cdkDropListDropped)="dropp($event)"
+                            style="margin: 10px; background-color: rgb(170, 170, 169);">
+                            <div class="tarea" *ngFor="let item of colaborador.tareas" cdkDrag
+                                (click)="seleccionarColaborador(colaborador)">
+                                {{item.nombre_tarea}}
+                                <button class="btn btn-danger text-end"
+                                    (click)="eliminar_tarea(item.codigo_tarea, colaborador.codigo)">-</button>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+        </div>
+
+        <!--</div> -->
+    </mat-tab>
+    <!-- -->
+    <mat-tab label="Calendario">
+    
+    </mat-tab>
+     <!--
+    <mat-tab label="Second">
+
+    </mat-tab>
+    <mat-tab label="Third">
+
+    </mat-tab>
+    -->
+
+</mat-tab-group>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Asignar tarea a {{asignacion.colaborador}}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body"><!--
+                <label for="text">Tarea</label>
+                <br>
+                <select id="lista_tarea" [(ngModel)]="asignacion.tarea">
+                    <option value="0">Seleccionar</option>
+                    <option *ngFor="let item of array_tareas" [value]="item.codigo" (click)="tarea_detalles(item)">
+                        {{item.nombre}}
+                    </option>
+                </select>-->
+                <table>
+                    <tr>
+                        <th>Tarea</th>
+                        <td>
+                            <select id="lista_tarea" [(ngModel)]="asignacion.tarea">
+                                <option value="0">Seleccionar</option>
+                                <option *ngFor="let item of array_tareas" [value]="item.codigo"
+                                    (click)="tarea_detalles(item)">
+                                    {{item.nombre}}
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Código</th>
+                        <td><input type="text" [(ngModel)]="tarea_detalle_codigo" size="8" disabled></td>
+                    </tr>
+                    <tr>
+                        <th>Tipo</th>
+                        <td><input type="text" [(ngModel)]="tarea_detalle_tipo" size="8" disabled> </td>
+                        <th>Duración</th>
+                        <td><input type="text" [(ngModel)]="tarea_detalle_duracion" size="8s" disabled> </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="limpiar_seleccion()">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="asignar_tarea(asignacion.cod_colaborador)">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

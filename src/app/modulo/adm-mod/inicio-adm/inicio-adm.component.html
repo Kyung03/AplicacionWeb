@@ -1,0 +1,139 @@
+<div class="container-md ">
+    <br>
+    <!--    TITULO Y MENU    -->
+    <div class="row ">
+        <!--    TITULO    -->
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <h3>Módulo administrador</h3>
+        </div>
+    </div>
+    <br>
+    <!--   INICIO ADM   -->
+    <div class="row">
+        <!--    GRAFICA INICIO   -->
+        <div class="col-md-6 ">
+            <div class="text-center">
+                <input type="date" [(ngModel)]="fecha_final" (change)="inicio()"  />
+            </div>
+            <canvas id="MiGrafica"></canvas>
+        </div>
+        <!--    DATOS DE LA COLADA INICIO   -->
+        <div class="col-md-6 ">
+            <div class="row text-center align-middle">
+                <div class="col-md-6 border border-success border-4 rounded">
+                    <h6> Ayer</h6>
+                    <div class="row  ">
+                        <span class=" text-center align-middle">
+                            <span> Total de coladas {{col_ayer_t}}</span>
+                        </span>
+                    </div>
+                    <div class="row  ">
+                        <span class=" text-center align-middle">
+                            <span> Última colada {{col_ayer_u}}</span>
+                        </span>
+                    </div>
+                    <div class="row  ">
+                        <span class=" text-center align-middle">
+                            <span> Peso promedio de chatarra {{col_ayer_p}}</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 border border-primary border-4 rounded">
+                    <h6> Hoy</h6>
+                    <div class="row  ">
+                        <span class=" text-center align-middle">
+                            <span> Total de coladas {{col_hoy_t}}</span>
+                        </span>
+                    </div>
+                    <div class="row  ">
+                        <span class=" text-center align-middle">
+                            <span> Última colada {{col_hoy_u}}</span>
+                        </span>
+                    </div>
+                    <div class="row  ">
+                        <span class=" text-center align-middle">
+                            <span> Peso promedio de chatarra {{col_hoy_p}}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--    RESUMEN MODULOS     -->
+    <div class="row">
+        <!--    HORNO EAF   -->
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header">Informe del horno de fusión</div>
+                <div class="card-body">
+                    Módulo donde se muestra un informe con
+                    los datos del horno de fusión, según un rango de fechas. El cual
+                    es posible exportar a una hoja de Excel.
+                </div>
+                <div class="card-footer">
+                    <strong>
+                        <a routerLink="horno" routerLinkActive="active">Entrar</a>
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <!--    HORNO EAF TIEMPOS   -->
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header">Informe de tiempos del horno de fusión</div>
+                <div class="card-body ">Módulo donde se muestra un informe con
+                    los datos referentes al tiempos de los distintos movimientos
+                    del horno de fusión, según un rango de fechas. El cual
+                    es posible exportar a una hoja de Excel.</div>
+                <div class="card-footer"><strong><a routerLink="tiempos" routerLinkActive="active">Entrar</a></strong>
+                </div>
+            </div>
+        </div>
+        <!--    HORNO EAF COMPLETO   -->
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header">Informe completo del horno de fusión</div>
+                <div class="card-body">Módulo donde se muestran todos
+                    los datos referentes al proceso del horno de fusión, según un rango
+                    de fechas.El cual es posible exportar a una hoja de Excel.</div>
+                <div class="card-footer"><strong><a routerLink="horno_datos"
+                            routerLinkActive="active">Entrar</a></strong></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--    HORNO EAF GRAFICO  -->
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header">Módulo gráfico de los datos del horno</div>
+                <div class="card-body">Módulo donde se muestran de forma gráfica
+                    los datos del horno de fusión, segun un rango de fechas.</div>
+                <div class="card-footer"><strong><a routerLink="horno_graficas"
+                            routerLinkActive="active">Entrar</a></strong></div>
+            </div>
+        </div>
+        <!--    HORNO EAF MODIFICAR COLADA  -->
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header">Modificación de los datos de una colada</div>
+                <div class="card-body">Módulo que permite la modificación de los datos
+                    de una colada, buscandola por medio del distintos parámetros.</div>
+                <div class="card-footer"> <strong><a routerLink="eaf_mod" routerLinkActive="active">Entrar</a></strong>
+                </div>
+            </div>
+        </div>
+        <!--    MCC MODIFICAR PESO   -->
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-header">Modificación de los datos de la colada MCC</div>
+                <div class="card-body">Módulo que permite la modificación de los datos
+                    del peso de una colada, buscandola por medio del distintos parámetros.</div>
+                <div class="card-footer"><strong><a routerLink="mcc_mod" routerLinkActive="active">Entrar</a></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

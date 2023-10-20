@@ -1,0 +1,94 @@
+<div class="container-md">
+    <div class="row " style=" margin-top:25px ">
+        <h3>Datos de colaborador</h3>
+    </div>
+
+    <div class="row">
+        <table>
+            <tr>
+                <th><label>Código</label></th>
+                <th><label>Nombre</label></th>
+                <th><label>Puesto</label></th>
+            </tr>
+            <tr>
+                <td><input type="text" name="" id="" [(ngModel)]="codigo_input" [disabled]="input_codigo"></td>
+                <td><input type="text" name="" id="" [(ngModel)]="nombre_input"></td>
+                <td><input type="text" name="" id="" [(ngModel)]="puesto_input"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row">
+        <table>
+            <tr>
+                <th>Jornada</th>
+                <th>Área</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="" id="jornada_selct" (change)="seleccion_area($event)" [(ngModel)]="jornada_input">
+                        <option value="0">Seleccionar</option>
+                        <option *ngFor="let item of jornada_array" value="{{item.codigo}}">{{item.nombre}}</option>
+
+                    </select>
+                </td>
+                <td>
+                    <select name="" id="" (change)="seleccion_area($event)" [(ngModel)]="area_input">
+                        <option value="0">Seleccionar</option>
+                        <option *ngFor="let item of area_array" value="{{item.codigo}}">{{item.nombre}}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col text-left"> <button class="btn btn-danger" (click)="btn_limpiar()">Limpiar</button> </div>
+        <div class="col text-center"> <button class="btn btn-primary" (click)="btn_guardar()">Guardar</button> </div>
+        <div class="col text-end"> <button class="btn btn-secondary"
+                (click)="listar_colaboradores()">Actualizar</button> </div>
+    </div>
+    <!--
+    <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+        <button class="btn btn-danger" (click)="btn_limpiar()">Limpiar</button>
+        <button class="btn btn-primary" (click)="btn_guardar()">Guardar</button>
+        <button class="btn btn-secondary" (click)="listar_colaboradores()">Actualizar</button>
+        <button type="button" class="btn btn-success justify-content-center align-items-center" data-bs-toggle="modal"
+            data-bs-target="#miModal">
+            Nuevo colaborador
+        </button>
+    </div>
+    -->
+    <div class="row">
+        <h3>Colaboradores</h3>
+        <div class="table-responsive scroll-lr border border-secondary border-4 rounded"
+            style="max-height: 280px; overflow-y: auto;">
+            <table class="table table-bordered text-center ">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Puesto</th>
+                        <th>Jornada</th>
+                        <th>Área</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr #fila *ngFor="let item of array_col" style="cursor:pointer; " (click)="seleccion(item, fila)">
+                        <td> {{item.codigo}} </td>
+                        <td> {{item.nombre}} </td>
+                        <td> {{item.puesto}} </td>
+                        <td> {{item.jornada}} </td>
+                        <td> {{item.area}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-secondary" (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+            <span>Página {{ currentPage }} de {{ totalPages }}</span>
+            <button class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+        </div>
+    </div>
+
+</div>

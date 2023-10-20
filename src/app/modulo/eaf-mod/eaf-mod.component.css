@@ -1,0 +1,45 @@
+
+tr>th:first-child {
+    position: sticky;
+    left: 0;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+/*
+tr>th:second-child {
+    position: sticky;
+    left: auto;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+*/
+.celda-fija-RepHor {
+    position: sticky;
+    left: 99px;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+.celda-fija {
+    position: sticky;
+    left: 100px;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+#cfijo {
+    position: absolute;
+    padding-left: 74.5 !important;
+}
+
+#color-1 {
+    background-color: rgb(98, 184, 241);
+    opacity: 1;
+}
+
+/* crear cuadro de 500 pixeles */
+div.scroll {
+    display: block;
+    height: 600px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}

@@ -1,0 +1,38 @@
+<section class="vh-100 gradient-custom" style="background-image:url(./assets/fondo1.jpg);background-color: #cccccc;
+height: 500px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <img src="./assets/logo.png" width="90" height="40">
+              <h2 class="fw-bold mb-2 text-uppercase">SISTEMA DE AUTOMATIZACIÓN ACERIA</h2>
+              <p class="text-white-50 mb-5">Por favor ingresar un usuario y contraseña</p>
+
+              <div class="form-outline form-white mb-4">
+                <input type="text" id="usuario" class="form-control form-control-lg" [(ngModel)]="usuario"
+                  name="usuario" placeholder="Usuario..." required="required" />
+                <label class="form-label" for="typeEmailX">Usuario</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="password" class="form-control form-control-lg" [(ngModel)]="password"
+                  name="password" placeholder="Contraseña..." required="required" />
+                <label class="form-label" for="typePasswordX">Contraseña</label>
+              </div>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="login()">Ingresar</button>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

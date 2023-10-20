@@ -1,0 +1,6 @@
+/* Estilo para limitar la altura de la tabla y habilitar el desplazamiento vertical */
+.tabla-contenedor {
+    /*max-height: 300px;
+    /* Cambia el valor según tus necesidades */
+    /*overflow-y: auto;*/
+}

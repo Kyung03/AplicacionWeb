@@ -1,0 +1,118 @@
+<div class="container-md ">
+    <br>
+    <!--    TITULO Y MENU    -->
+    <div class="row ">
+        <!--    TITULO    -->
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <h3>Modificar datos MCC</h3>
+        </div>
+        <!--    MENU    -->
+    </div>
+    <br>
+    <!--    CUADROS DE TEXTO    -->
+    <div class="row ">
+        <div class="col-md-4 text-center ">
+            <label for="text" class="px-sm-2">No.Colada:</label>
+            <input type="number" [(ngModel)]="numColada" id="numColadaId" (change)="listar_datos()" />
+        </div>
+        <div class="col-md-4 text-center ">
+            <label for="text" class="px-sm-2">Colada del día:</label>
+            <input type="number" [(ngModel)]="diaColada" id="coladaDia" (change)="listar_datos()" />
+        </div>
+        <div class="col-md-4 text-center ">
+            <label for="text" class="px-sm-2">Fecha:</label>
+            <input type="date" [(ngModel)]="fecha" id="fechaId" (change)="listar_datos()" />
+        </div>
+
+    </div>
+    <br>
+    <!--    TABLA     -->
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="table-responsive scroll border border-secondary border-4 rounded">
+                <table class="table">
+                    <tr>
+                        <!--    NUMERO DE COLADA    -->
+                        <th><label for="text" class="px-sm-2">No.Colada:</label></th>
+                        <td><input type="text" [(ngModel)]="in_numColada" disabled /></td>
+                        <!--    COLADA DEL DIA    -->
+                        <th><label for="text" class="px-sm-2">Col.dia:</label></th>
+                        <td><input type="text" [(ngModel)]="in_diaColada" disabled /></td>
+                        <!--    FECHA     -->
+                        <th><label for="text" class="px-sm-2">Fecha:</label></th>
+                        <td><input type="text" [(ngModel)]="in_fecha" disabled /></td>
+                    </tr>
+                    <tr>
+                        <!--    HORA    -->
+                        <th><label for="text" class="px-sm-2">Hora:</label></th>
+                        <td><input type="text" [(ngModel)]="in_hora" disabled /></td>
+                        <!--    FECHA MCC    -->
+                        <th><label for="text" class="px-sm-2">FechaT:</label></th>
+                        <td><input type="date" [(ngModel)]="in_fechat" /></td>
+                        <!--    HORA MCC    -->
+                        <th><label for="text" class="px-sm-2">HoraT:</label></th>
+                        <td><input type="time" [(ngModel)]="in_horat" /></td>
+                    </tr>
+                    <tr>
+                        <!--    CANTIDAD DE LINGOTES    -->
+                        <th><label for="text" class="px-sm-2">Lingotes:</label></th>
+                        <td><input type="number" [(ngModel)]="in_lingotes" /></td>
+                        <!--    ACERO    -->
+                        <th><label for="text" class="px-sm-2">Acero:</label></th>
+                        <td><input type="number" [(ngModel)]="in_acero" /></td>
+                        <!--    PESO ACERO    -->
+                        <th><label for="text" class="px-sm-2">Peso:</label></th>
+                        <td><input type="number" [(ngModel)]="in_peso" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4 "> <button class="btn btn-secondary" (click)="btn_limpiar()">Limpiar</button> </div>
+        <div class="col-md-4 text-center"> <button class="btn btn-primary" (click)="btn_guardar()">Guardar</button>
+        </div>
+        <div class="col-md-4 text-end"> <button class="btn btn-success" (click)="listar_datos()">Actualizar</button>
+        </div>
+    </div>
+    <br>
+    <!--    TABLA     -->
+    <div class="row">
+        <div class="col-md-12 ">
+            <h3>Coladas MCC</h3>
+            <div class="table-responsive scroll-lr border border-secondary border-4 rounded">
+                <table class="table table-bordered text-center ">
+                    <thead>
+                        <tr>
+                            <th>No.Colada</th>
+                            <th>Col.dia</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>FechaT</th>
+                            <th>HoraT</th>
+                            <th>Lingotes</th>
+                            <th>Acero</th>
+                            <th>Peso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr #fila *ngFor="let item of coladas " style="cursor:pointer; "
+                            (click)="seleccion(item, fila)">
+                            <td> {{item.numero}} </td>
+                            <td> {{item.dia}} </td>
+                            <td> {{item.fecha}} </td>
+                            <td> {{item.hora}} </td>
+                            <td> {{item.horat}} </td>
+                            <td> {{item.fechat}} </td>
+                            <td> {{item.lingotes}} </td>
+                            <td> {{item.acero}} </td>
+                            <td> {{item.peso}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

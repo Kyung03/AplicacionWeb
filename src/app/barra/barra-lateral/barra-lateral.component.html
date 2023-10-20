@@ -1,0 +1,106 @@
+<!--
+<a *ngIf="usuario_EAF" routerLink="" routerLinkActive="active">EAF Inicio</a><br *ngIf="usuario_EAF">
+<a *ngIf="usuario_EAF" routerLink="horno" routerLinkActive="active">Horno</a><br *ngIf="usuario_EAF">
+<a *ngIf="usuario_EAF" routerLink="tiempos" routerLinkActive="active">Tiempos</a><br *ngIf="usuario_EAF">
+<a *ngIf="usuario_EAF" routerLink="completo" routerLinkActive="active">Completo</a><br *ngIf="usuario_EAF">
+<a *ngIf="usuario_EAF" routerLink="graficas" routerLinkActive="active">Graficas</a><br *ngIf="usuario_EAF">
+
+<a *ngIf="usuario_MCC" routerLink="" routerLinkActive="active">MCC Inicio</a><br *ngIf="usuario_MCC">
+<a *ngIf="usuario_MCC" routerLink="ingresar" routerLinkActive="active">Toneladas Producidas</a><br *ngIf="usuario_MCC">
+<a *ngIf="usuario_MCC" routerLink="modificar" routerLinkActive="active">Modificacion</a><br *ngIf="usuario_MCC">
+
+<a *ngIf="usuario_ADM" routerLink="" routerLinkActive="active">ADM Inicio</a><br *ngIf="usuario_ADM">
+-->
+
+
+<div class="offcanvas offcanvas-start w-auto" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header">
+        <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Reporte</h6>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-2">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+            <!--
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" class="nav-link text-truncate" *ngIf="usuario_EAF" routerLink="" routerLinkActive="active">
+                    <i class="fs-5 bi-speedometer2" ></i><span class="ms-1 d-none d-sm-inline">EAF Inicio</span>
+                </a>
+            </li>
+            -->
+            <!--    Barra EAF     -->
+            <li>
+                <a data-bs-toggle="collapse" class="nav-link text-truncate" *ngIf="usuario_EAF" routerLink="horno" routerLinkActive="active">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/olla.png" width="40" height="40">Horno</span> </a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_EAF" routerLink="tiempos"     routerLinkActive="active">
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/tiempo.png" width="40" height="40">Tiempos</span></a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_EAF" routerLink="completo"    routerLinkActive="active">
+                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/grafica3.png" width="40" height="40">Completo</span></a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_EAF" routerLink="graficas" routerLinkActive="active">
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/grafica.png" width="40" height="40">Graficas</span> </a>
+            </li>
+            <!--    Barra MCC     -->
+            <li>
+                <a data-bs-toggle="collapse" class="nav-link text-truncate" *ngIf="usuario_MCC" routerLink="ingresar" routerLinkActive="active">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/acero3.png" width="40" height="40">Ingresar</span> </a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_MCC" routerLink="modificar" routerLinkActive="active">
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/modificar.png" width="40" height="40">Modificar</span></a>
+            </li>
+            <!--    Barra admin     -->
+            <li>
+                <a data-bs-toggle="collapse" class="nav-link text-truncate" *ngIf="usuario_ADM" routerLink="horno" routerLinkActive="active">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/olla.png" width="40" height="40">Horno</span> </a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_ADM" routerLink="tiempos" routerLinkActive="active">
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/tiempo.png" width="40" height="40">Tiempos</span></a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_ADM" routerLink="horno_datos" routerLinkActive="active">
+                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/grafica3.png" width="40" height="40">Completo</span></a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_ADM" routerLink="horno_graficas" routerLinkActive="active">
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/grafica.png" width="40" height="40">Graficas</span> </a>
+            </li>
+            <li>
+                <a class="nav-link text-truncate" *ngIf="usuario_ADM" routerLink="mcc_mod" routerLinkActive="active">
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline"><img src="./assets/modificar.png" width="40" height="40">Modificar</span></a>
+            </li>
+            <!--
+            <li class="dropdown">
+                <a href="#" class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+<!--
+<div class="container-fluid">
+    <div class="row">
+        <div class="col min-vh-100 py-3">
+            
+            Content..
+        </div>
+    </div>
+</div>
+-->
+

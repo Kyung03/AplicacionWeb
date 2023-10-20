@@ -1,0 +1,25 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" class="card bg-warning " style="border-radius: 1rem;">
+        <div (click)="$event.stopPropagation()">
+            <div class="row ">
+                <div class="col-md-2 ">
+                    <button class="close" type="button" (click)="close()" style="border-radius: 1rem;">X</button>
+                </div>
+            </div>
+            <h3 class="text-center">Sesion existente.</h3>
+            <br>
+            <p class="text-center"> Existen una sesion abierta de este usuario.</p>
+            <p class="text-center">¿Desea ingresar nuevamente?</p>
+            <br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4  ">
+                    <button class="btn btn-success" style="width: 90px;" (click)="aceptar()">Aceptar</button>
+                </div>
+                <div class="col-md-2 ">
+                    <button class="btn btn-danger" style="width: 90px;" (click)="close()">Salir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

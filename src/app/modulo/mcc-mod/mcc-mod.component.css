@@ -1,0 +1,59 @@
+
+.celda-fija {
+    position: sticky;
+    left: 0;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+
+#cfijo {
+    position: absolute;
+    padding-left: 74.5 !important;
+}
+
+#csig {
+    width: 80px;
+}
+
+/* crear cuadro de 500 pixeles */
+div.scroll-lr {
+    display: block;
+    height: 400px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+/*
+table.mod {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.mod th{
+    background-color: #b5cfd2;
+    border-width: 1px;
+    padding: 12px;
+    border-style: solid;
+    border-color: #999999;
+}
+
+table.mod td{
+    background-color: #b5cfd2;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
+
+table.mod tr{
+    background-color: #dcddc0;
+}
+
+table.mod tr:hover{
+    background-color: #ebeccd;
+}*/

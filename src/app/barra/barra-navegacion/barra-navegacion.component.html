@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="{{url_mod}}" routerLinkActive="active"> <img src="./assets/logo.png"
+                width="90" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class=" nav-item px-sm-0">
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fs-6 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">{{modulo}}</span>
+                    </a>
+                    <!--    Modulo eaf    -->
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown" *ngIf="usuario_EAF">
+                        <li><a class="dropdown-item" routerLink="horno" routerLinkActive="active"><img
+                                    src="./assets/olla.png" width="40" height="40">Horno EAF</a>
+                        </li>
+                        <li><a class="dropdown-item" routerLink="tiempos" routerLinkActive="active"><img
+                                    src="./assets/tiempo.png" width="40" height="40">Tiempo</a>
+                        </li>
+                        <li><a class="dropdown-item" routerLink="completo" routerLinkActive="active"><img
+                                    src="./assets/grafica3.png" width="40" height="40">Completo</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" routerLink="graficas" routerLinkActive="active"><img
+                                    src="./assets/grafica.png" width="40" height="40">Gráfica</a>
+                        </li>
+                    </ul>
+                    <!--    Modulo mcc    -->
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown" *ngIf="usuario_MCC">
+                        <li><a class="dropdown-item" *ngIf="usuario_MCC" routerLink="ingresar"
+                                routerLinkActive="active"><img src="./assets/acero3.png" width="40"
+                                    height="40">Ingresar</a>
+                        </li>
+                        <li><a class="dropdown-item" *ngIf="usuario_MCC" routerLink="modificar"
+                                routerLinkActive="active"><img src="./assets/modificar.png" width="40"
+                                    height="40">Modificar</a>
+                        </li>
+                    </ul>
+                    <!--    Modulo admin    -->
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown" *ngIf="usuario_ADM">
+                        <li>
+                            <a class="dropdown-item" routerLink="" routerLinkActive="active"><img
+                                    src="./assets/olla.png" width="40" height="40">Inicio</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="horno" routerLinkActive="active"><img
+                                    src="./assets/olla.png" width="40" height="40">Horno EAF</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="tiempos" routerLinkActive="active"><img
+                                    src="./assets/tiempo.png" width="40" height="40">Tiempo</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="horno_datos" routerLinkActive="active"><img
+                                    src="./assets/grafica3.png" width="40" height="40">Completo</a>
+                        </li>
+                        <li>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="horno_graficas" routerLinkActive="active"><img
+                                    src="./assets/grafica.png" width="40" height="40">Gráfica</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" *ngIf="usuario_ADM" routerLink="eaf_mod"
+                                routerLinkActive="active"><img src="./assets/modificar.png" width="40"
+                                    height="40">Mod.Fusión</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" *ngIf="usuario_ADM" routerLink="mcc_mod"
+                                routerLinkActive="active"><img src="./assets/modificar.png" width="40"
+                                    height="40">Mod.Colada</a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" *ngIf="usuario_ADM" routerLink="tarea_mod"
+                                routerLinkActive="active"><img src="./assets/modificar.png" width="40"
+                                    height="40">Tarea</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" *ngIf="usuario_ADM" routerLink="colab_mod"
+                                routerLinkActive="active"><img src="./assets/modificar.png" width="40"
+                                    height="40">Colaborador</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" *ngIf="usuario_ADM" routerLink="asig_mod"
+                                routerLinkActive="active"><img src="./assets/modificar.png" width="40"
+                                    height="40">Asignar</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="dropdown-item text-white" routerLink="perfil" routerLinkActive="active">{{usuario}}<img
+                            src="./assets/usuario4.png" width="40" height="40"></a>
+                </li>
+                <li><a class="dropdown-item px-3 text-white" (click)="salir()" style="cursor:pointer; " >Salir<img src="./assets/salir3.png" width="40"
+                            height="40"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

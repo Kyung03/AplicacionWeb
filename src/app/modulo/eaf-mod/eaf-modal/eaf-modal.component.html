@@ -1,0 +1,28 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" class="card bg-warning " style="border-radius: 1rem;">
+        <div (click)="$event.stopPropagation()">
+            <div class="row ">
+                <div class="col-md-2 ">
+                    <button class="close" type="button" (click)="close()" style="border-radius: 1rem;"><img
+                            src="./assets/menu3.png" width="20" height="20"></button>
+                </div>
+            </div>
+            <div class="text-center">
+                <h3>Seleccione el mes que desea</h3><br>
+                <select name="" id="select">
+                    <option *ngFor="let item of meses" [value]="item.valor"> {{item.mes}}</option>
+                </select>
+                <br>
+                <br>
+                <input type="number" class="px-2" [(ngModel)]="fecha_anio" name="fecha_anio" size="5" required>
+            </div>
+            <br>
+            <div class="row text-center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4  ">
+                    <button class="btn btn-success" style="width: 90px;" (click)="informe_mes()">Generar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

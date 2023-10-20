@@ -1,0 +1,60 @@
+<div class="container-md ">
+    <br>
+    <div class="row ">
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <h3>Perfil </h3>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <div class="col-md-12 text-center ">
+                <table class="table table-bordered ">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Tipo de usuario</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" [(ngModel)]="usuario" name="usuario" /></td>
+                        <td><input type="text" [(ngModel)]="tipo" name="tipo" disabled /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <h3>Cambiar contraseña. </h3>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <div class="col-md-12 text-center ">
+                <table class="table table-bordered">
+                    <tr *ngIf="!verificacion_comp">
+                        <td><input type="password" [(ngModel)]="clave" name="clave"></td>
+                        <td><button class="btn " (click)="btn_verifiacar()">Comprobar</button></td>
+                    </tr>
+                    <tr *ngIf="verificacion_camb">
+                        <td><input type="password" [(ngModel)]="clave_nueva" name="clave_nueva"></td>
+                        <th> <label for="text">Nueva Contraseña</label> </th>
+                    </tr>
+                    <tr *ngIf="verificacion_camb">
+                        <td><input type="password" [(ngModel)]="clave_rep" name="clave_rep"></td>
+                        <th> <label for="text">Escribir la contraseña nuevamente</label></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center ">
+            <button class="btn btn-primary" (click)="btn_mod_us()">Guardar</button>
+        </div>
+    </div>
+</div>

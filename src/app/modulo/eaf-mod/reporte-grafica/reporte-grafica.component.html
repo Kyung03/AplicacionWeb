@@ -1,0 +1,28 @@
+<br>
+<div class="row ">
+    <div class="col-md-12 text-center">
+        <h3>Gráfica</h3>
+    </div>
+</div>
+<br>
+<div class="row ">
+<br>
+    <div class="col-md-12 text-center">
+        Desde:
+        <input type="date" [(ngModel)]="fecha_inicio" name="fecha_inicio" (change)="informe_grafica()" />
+        Hasta:
+        <input type="date" [(ngModel)]="fecha_final" name="fecha_final" (change)="informe_grafica()" />
+    </div>
+</div>
+<div class="container-md">
+    <div class="row" id="legend">
+    </div>
+</div>
+
+<div class="container-md">
+    <div class="row">
+        <div class="col-md-12 chart-container ">
+            <canvas id="reporteGrafica" width="100px" weight="100px">{{grafica}}</canvas>
+        </div>
+    </div>
+</div>

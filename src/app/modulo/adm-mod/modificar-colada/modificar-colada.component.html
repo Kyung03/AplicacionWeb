@@ -1,0 +1,769 @@
+<div class="container-md ">
+    <br>
+    <!--    TITULO Y MENU    -->
+    <div class="row ">
+        <!--    TITULO    -->
+        <div class="col-md-4 text-center "></div>
+        <div class="col-md-4 text-center ">
+            <h3>Modificar datos Horno de fusión</h3>
+        </div>
+        <!--    MENU    -->
+    </div>
+    <br>
+    <!--    CUADROS DE TEXTO    -->
+    <div class="row ">
+        <div class="col-md-4 text-center ">
+            <label for="text" class="px-sm-2">No.Colada:</label>
+            <input type="number" [(ngModel)]="numColada" id="numColadaId" (change)="listar_datos()" />
+        </div>
+        <div class="col-md-4 text-center ">
+            <label for="text" class="px-sm-2">Colada del día:</label>
+            <input type="number" [(ngModel)]="diaColada" id="coladaDia" (change)="listar_datos()" />
+        </div>
+        <div class="col-md-4 text-center ">
+            <label for="text" class="px-sm-2">Fecha:</label>
+            <input type="date" [(ngModel)]="fecha" id="fechaId" (change)="listar_datos()" />
+        </div>
+
+    </div>
+    <br>
+    <!--    TABLA     -->
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modificar colada {{colada_modificar.numero}}</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="accordion" id="accordionExample">
+                                <!-- Acordeon 1 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Información de colada.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <tr>
+                                                        <!--    NUMERO DE COLADA    -->
+                                                        <th><label for="text" class="px-sm-2">No.Colada:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.numero"
+                                                                disabled /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    COLADA DEL DIA    -->
+                                                        <th><label for="text" class="px-sm-2">Col.día:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.dia" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    FECHA DE COLADA     -->
+                                                        <th><label for="text" class="px-sm-2">Fecha:</label></th>
+                                                        <td><input type="date" [(ngModel)]="colada_modificar.fecha" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    HORA DE COLADA    -->
+                                                        <th><label for="text" class="px-sm-2">Hora:</label></th>
+                                                        <td><input type="time" [(ngModel)]="colada_modificar.hora" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    RECARGUES    -->
+                                                        <th><label for="text" class="px-sm-2">Recargues:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.recargue" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    CARGA CHATARRA    -->
+                                                        <th><label for="text" class="px-sm-2">Carga Chatarra:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tonChatarra" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    PROGRASMART     -->
+                                                        <th><label for="text" class="px-sm-2">PograSmart:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.pgr_smart" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    POGRADIGIT    -->
+                                                        <th><label for="text" class="px-sm-2">PograDigit:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.pgr_digit" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    % CARBON    -->
+                                                        <th><label for="text" class="px-sm-2">% Carbón:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.carbon" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TEMPERATURA FINAL    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.Final:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tempFinal" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    PESO CESTA 1     -->
+                                                        <th><label for="text" class="px-sm-2">Peso Cesta 1:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.peso_cesta1" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    PESO CESTA 2     -->
+                                                        <th><label for="text" class="px-sm-2">Peso Cesta 2:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.peso_cesta2" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    PESO CESTA 3    -->
+                                                        <th><label for="text" class="px-sm-2">Peso Cesta 3:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.peso_cesta3" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    PESO CESTA 4    -->
+                                                        <th><label for="text" class="px-sm-2">Peso Cesta 4:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.peso_cesta4" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    PESO CESTA 5     -->
+                                                        <th><label for="text" class="px-sm-2">Peso Cesta 5:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.peso_cesta5" /></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Acordeon 2 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Energía química.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <!--    OXIGENO LANCEADO    -->
+                                                    <tr>
+                                                        <th><label for="text" class="px-sm-2">Ox.Lanceado:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.oxlan" />
+                                                        </td>
+                                                    </tr>
+                                                    <!--    M3 LANCEADO    -->
+                                                    <tr>
+                                                        <th><label for="text" class="px-sm-2">M3.Lanceado:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.m3" /></td>
+                                                    </tr>
+                                                    <!--    ANTRACITA    -->
+                                                    <tr>
+                                                        <th><label for="text" class="px-sm-2">Antracita:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.antracita" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    GRAFITO    -->
+                                                        <th><label for="text" class="px-sm-2">Grafito:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.grafito" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TOTAL CARBON    -->
+                                                        <th><label for="text" class="px-sm-2">Total carbón:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.tcarbon" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    GASOLEO    -->
+                                                        <th><label for="text" class="px-sm-2">Gasóleo:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.gasoleo" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    GLP    -->
+                                                        <th><label for="text" class="px-sm-2">GLP:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.glp" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    OXIGENO    -->
+                                                        <th><label for="text" class="px-sm-2">Oxígeno:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.oxigeno" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ESPUMANTE    -->
+                                                        <th><label for="text" class="px-sm-2">Espumante:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.espumante" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    CALDOLOMITICA    -->
+                                                        <th><label for="text" class="px-sm-2">Caldolomítica:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.caldolomitica" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    CALCALCITICA    -->
+                                                        <th><label for="text" class="px-sm-2">Calcalcítica:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.calcalcitica" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    KALISTER    -->
+                                                        <th><label for="text" class="px-sm-2">Kalister:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.kalister" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TORTA    -->
+                                                        <th><label for="text" class="px-sm-2">Torta:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.torta" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Acordeon 3 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Energía.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <tr>
+                                                        <!--    ENERGIA FUSION    -->
+                                                        <th><label for="text" class="px-sm-2">Energía fusión:</label>
+                                                        </th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.fusion" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ENERGIA AFINO    -->
+                                                        <th><label for="text" class="px-sm-2">Energía afino:</label>
+                                                        </th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.afino" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ENERGIA TOTAL    -->
+                                                        <th><label for="text" class="px-sm-2">Energía total:</label>
+                                                        </th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.ttotal" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TON FUSION    -->
+                                                        <th><label for="text" class="px-sm-2">Ton/fusión:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tonfusion" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TON AFINO    -->
+                                                        <th><label for="text" class="px-sm-2">Ton/afino:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tonafino" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ESPECIFICA C1    -->
+                                                        <th><label for="text" class="px-sm-2">Específica C1:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.especifica_c1" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ESPECIFICA C2    -->
+                                                        <th><label for="text" class="px-sm-2">Específica C2:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.especifica_c2" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ESPECIFICA C3    -->
+                                                        <th><label for="text" class="px-sm-2">Específica C3:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.especifica_c3" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    ESPECIFICA C4    -->
+                                                        <th><label for="text" class="px-sm-2">Específica C4:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.especifica_c4" /></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Acordeon 4 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Tiempos.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <tr>
+                                                        <!--    TIEMPO FUSION    -->
+                                                        <th><label for="text" class="px-sm-2">Tiempo fusión:</label>
+                                                        </th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.tfusion" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO AFINO    -->
+                                                        <th><label for="text" class="px-sm-2">Tiempo afino:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.tafino" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    POWER ON    -->
+                                                        <th><label for="text" class="px-sm-2">Power ON:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.on" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    POWER OFF    -->
+                                                        <th><label for="text" class="px-sm-2">Power OFF:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.off" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO TOTAL    -->
+                                                        <th><label for="text" class="px-sm-2">Tiempo total:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tminutos" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    HORA INICIO    -->
+                                                        <th><label for="text" class="px-sm-2">Hora inicio:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.hr_inicio" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO VACIADO    -->
+                                                        <th><label for="text" class="px-sm-2">Tiempo vaciado:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.temp_vaciado" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO SELLADO    -->
+                                                        <th><label for="text" class="px-sm-2">Tmp.Sellado:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_sellado" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO ARMADO    -->
+                                                        <th><label for="text" class="px-sm-2">Tmp.Armado:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_armado" /></td>
+
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO RECARGUE 1    -->
+                                                        <th><label for="text" class="px-sm-2">Tmp.Recargue 1:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_recargue_1" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    BOVEDA ABIERTA CARGA 1    -->
+                                                        <th><label for="text" class="px-sm-2">Boveda carga 1:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_bov_1r_carga" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO RECARGUE 2    -->
+                                                        <th><label for="text" class="px-sm-2">Tmp.Recargue 2:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_recargue_2" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    BOVEDA ABIERTA CARGA 2    -->
+                                                        <th><label for="text" class="px-sm-2">Boveda carga 2:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_bov_2a_carga" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO RECARGUE 3    -->
+                                                        <th><label for="text" class="px-sm-2">Tmp.Recargue 3:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_recargue_3" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    BOVEDA ABIERTA CARGA 3    -->
+                                                        <th><label for="text" class="px-sm-2">Boveda carga 3:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_bov_3r_carga" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TIEMPO RECARGUE 4    -->
+                                                        <th><label for="text" class="px-sm-2">Tmp.Recargue 4:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_recargue_4" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    BOVEDA ABIERTA CARGA 4    -->
+                                                        <th><label for="text" class="px-sm-2">Boveda carga 4:</label>
+                                                        </th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.tmp_bov_4a_carga" /></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Acordeon 5 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                            aria-expanded="false" aria-controls="collapseFive">
+                                            Información adicional.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFive" class="accordion-collapse collapse"
+                                        aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <tr>
+                                                        <!--    ENDBRICK    -->
+                                                        <th><label for="text" class="px-sm-2">Endbrick:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.endbrick" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    COLADA HORNO    -->
+                                                        <th><label for="text" class="px-sm-2">Col.Horno:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.col_horno" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    COLADA DELTA    -->
+                                                        <th><label for="text" class="px-sm-2">Col.Delta:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.col_delta" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    COLADA ELEC 1    -->
+                                                        <th><label for="text" class="px-sm-2">Col.Elect 1:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.col_elect1" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    COLADA ELEC 2    -->
+                                                        <th><label for="text" class="px-sm-2">Col.Elect 2:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.col_elect2" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    COLADA ELEC 3    -->
+                                                        <th><label for="text" class="px-sm-2">Col.Elect 3:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.col_elect3" /></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Acordeon 6 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSix">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                                            aria-expanded="false" aria-controls="collapseSix">
+                                            Información de operación.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSix" class="accordion-collapse collapse"
+                                        aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <tr>
+                                                        <!--    CODIGO GRADO    -->
+                                                        <th><label for="text" class="px-sm-2">Grado:</label></th>
+                                                        <!--<td><input type="text" [(ngModel)]="colada_modificar.cod_grado" /></td>-->
+                                                        <td>
+                                                            <select id="lista_grado">
+                                                                <option *ngFor="let item of grado" [value]="item">
+                                                                    {{item}}</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    JEFE DE TURNO    -->
+                                                        <th><label for="text" class="px-sm-2">Jefe:</label></th>
+                                                        <!--<td><input type="text" [(ngModel)]="colada_modificar.cod_jefe" /></td>-->
+                                                        <td>
+                                                            <select id="lista_jefe">
+                                                                <option *ngFor="let item of jefe" [value]="item">
+                                                                    {{item}}</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    JORNADA    -->
+                                                        <th><label for="text" class="px-sm-2">Jornada:</label></th>
+                                                        <!--<td><input type="text" [(ngModel)]="colada_modificar.cod_jornada" /></td>-->
+                                                        <td>
+                                                            <select id="lista_jornada">
+                                                                <option *ngFor="let item of jornada" [value]="item">
+                                                                    {{item}}</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    FUNDIDOR    -->
+                                                        <th><label for="text" class="px-sm-2">Fundidor:</label></th>
+                                                        <!--<td><input type="text" [(ngModel)]="colada_modificar.cod_fundidor" /></td>-->
+                                                        <td>
+                                                            <select id="lista_fundidor">
+                                                                <option *ngFor="let item of fundidor" [value]="item">
+                                                                    {{item}}</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Acordeon 7 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingSeven">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSeven"
+                                            aria-expanded="false" aria-controls="collapseSeven">
+                                            Temperaturas.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseSeven" class="accordion-collapse collapse"
+                                        aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div
+                                                class="table-responsive scroll-sm border border-secondary border-4 rounded">
+                                                <table class="table">
+                                                    <tr>
+                                                        <!--    TEMPERATURA CENTRO    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.Centro:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.temp_centro" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TEMPERATURA EBT    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.EBT:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.temp_evt" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TEMPERATURA PUERTA    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.Puerta:</label></th>
+                                                        <td><input type="text"
+                                                                [(ngModel)]="colada_modificar.temp_puerta" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TEMPERATURA 12    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.12:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.temp12" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TEMPERATURA 23    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.23:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.temp23" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <!--    TEMPERATURA 31    -->
+                                                        <th><label for="text" class="px-sm-2">Temp.31:</label></th>
+                                                        <td><input type="text" [(ngModel)]="colada_modificar.temp31" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FIN Acordeon 7 -->
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 "></div>
+                        <div class="col-md-4 text-center">
+                            <button class="btn btn-primary" (click)="guardar()">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="limpiar()">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!--    TABLA    -->
+    <div class="row">
+        <div class="col-md-12 ">
+            <h3>Coladas </h3>
+            <div class="table-responsive scroll border border-secondary border-4 rounded " id="tabla_mod">
+                <table class="table table-bordered text-center table-secondary">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let titulo of titulos">
+                                {{titulo}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let colada of coladas " style="cursor:pointer" (click)="seleccion(colada)">
+                            <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#myModal">
+                                    Modificar
+                                </button></td>
+                            <td > {{colada.numero}} </td>
+                            <td> {{colada.dia}} </td>
+                            <td> {{colada.fecha}} </td>
+                            <td> {{colada.hora}} </td>
+                            <td> {{colada.recargue}} </td>
+                            <td> {{colada.oxlan}} </td>
+                            <td> {{colada.tonChatarra}} </td>
+                            <td> {{colada.m3}} </td>
+                            <td> {{colada.antracita}} </td>
+                            <td> {{colada.grafito}} </td>
+                            <td> {{colada.tcarbon}} </td>
+                            <td> {{colada.gasoleo}} </td>
+                            <td> {{colada.glp}} </td>
+                            <td> {{colada.oxigeno}} </td>
+                            <td> {{colada.espumante}} </td>
+                            <td> {{colada.fusion}} </td>
+                            <td> {{colada.tfusion}} </td>
+                            <td> {{colada.afino}} </td>
+                            <td> {{colada.tafino}} </td>
+                            <td> {{colada.ttotal}} </td>
+                            <td> {{colada.tonfusion}} </td>
+                            <td> {{colada.tonafino}} </td>
+                            <td> {{colada.on}} </td>
+                            <td> {{colada.off}} </td>
+                            <td> {{colada.carbon}} </td>
+                            <td> {{colada.tempFinal}} </td>
+                            <td> {{colada.tminutos}} </td>
+                            <td> {{colada.endbrick}} </td>
+
+                            <td> {{colada.cod_grado}} </td>
+                            <td> {{colada.cod_fundidor}} </td>
+                            <td> {{colada.cod_jefe}} </td>
+                            <td> {{colada.hr_inicio}} </td>
+                            <td> {{colada.temp_vaciado}} </td>
+                            <td> {{colada.cod_jornada}} </td>
+                            <td> {{colada.pgr_smart}} </td>
+                            <td> {{colada.pgr_digit}} </td>
+                            <td> {{colada.peso_cesta1}} </td>
+                            <td> {{colada.peso_cesta2}} </td>
+                            <td> {{colada.peso_cesta3}} </td>
+                            <td> {{colada.peso_cesta4}} </td>
+                            <td> {{colada.peso_cesta5}} </td>
+                            <td> {{colada.col_horno}} </td>
+                            <td> {{colada.col_delta}} </td>
+                            <td> {{colada.col_elect1}} </td>
+                            <td> {{colada.col_elect2}} </td>
+                            <td> {{colada.col_elect3}} </td>
+                            <td> {{colada.caldolomitica}} </td>
+                            <td> {{colada.calcalcitica}} </td>
+                            <td> {{colada.kalister}} </td>
+                            <td> {{colada.torta}} </td>
+                            <td> {{colada.temp_centro}} </td>
+                            <td> {{colada.temp_evt}} </td>
+                            <td> {{colada.temp_puerta}} </td>
+                            <td> {{colada.temp12}} </td>
+                            <td> {{colada.temp23}} </td>
+                            <td> {{colada.temp31}} </td>
+
+                            <td> {{colada.tmp_sellado}} </td>
+                            <td> {{colada.tmp_armado}} </td>
+                            <td> {{colada.tmp_recargue_1}} </td>
+                            <td> {{colada.tmp_bov_1r_carga}} </td>
+                            <td> {{colada.tmp_recargue_2}} </td>
+                            <td> {{colada.tmp_bov_2a_carga}} </td>
+                            <td> {{colada.tmp_recargue_3}} </td>
+                            <td> {{colada.tmp_bov_3r_carga}} </td>
+                            <td> {{colada.tmp_recargue_4}} </td>
+                            <td> {{colada.tmp_bov_4a_carga}} </td>
+                            <td> {{colada.especifica_c1}} </td>
+                            <td> {{colada.especifica_c2}} </td>
+                            <td> {{colada.especifica_c3}} </td>
+                            <td> {{colada.especifica_c4}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</div>

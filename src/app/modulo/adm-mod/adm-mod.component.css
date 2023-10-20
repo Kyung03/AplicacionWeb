@@ -1,0 +1,51 @@
+/*
+tr>th:first-child {
+    position: sticky;
+    left: 0;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+
+tr>th:second-child {
+    position: sticky;
+    left: auto;
+    background-color: rgb(231, 188, 67);
+    width: 80px;
+}
+*/
+.celda-fija {
+    position: sticky;
+    left: 0;
+    background-color: rgb(230, 202, 127);
+    width: 80px;
+}
+
+#cfijo {
+    position: absolute;
+    padding-left: 74.5 !important;
+}
+
+#csig {
+    width: 80px;
+}
+
+#tabla_mod{
+    height: 300px;
+}
+
+/* crear cuadro de 500 pixeles */
+div.scroll {
+    display: block;
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+div.scroll-sm {
+    display: block;
+    height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
